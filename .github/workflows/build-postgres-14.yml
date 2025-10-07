@@ -1,4 +1,4 @@
-name: Docker
+name: postgresql-14.18.0-debian-12-r11
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -10,10 +10,6 @@ on:
   #   - cron: '32 2 * * *'
   push:
     branches: [ "develop" ]
-    # Publish semver tags as releases.
-    # tags: [ 'v*.*.*' ]
-  # pull_request:
-  #   branches: [ "develop" ]
   workflow_dispatch:
 
 env:
@@ -21,12 +17,13 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
+  # [bitnami/postgresql] Release 14.18.0-debian-12-r11 (bitnami#82713)
+  IMAGE_GIT_REF: ae257f7cdcdc7b098cb678edd8c500f923082787
   IMAGE_TAG: postgresql-14.18.0-debian-12-r11
-
+  IMAGE_CONTEXT: ./bitnami/postgresql/14/debian-12/
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,8 +36,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # [bitnami/postgresql] Release 14.18.0-debian-12-r11 (bitnami#82713)
-          ref: ae257f7cdcdc7b098cb678edd8c500f923082787
+          ref: ${{ env.IMAGE_GIT_REF }}
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -81,7 +77,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
-          context: ./bitnami/postgresql/14/debian-12/
+          context: ${{ env.IMAGE_CONTEXT }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
