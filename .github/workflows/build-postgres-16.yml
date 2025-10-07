@@ -1,4 +1,4 @@
-name: postgresql-14.18.0-debian-12-r11
+name: postgresql-16.9.0-debian-12-r13
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -15,10 +15,10 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  # [bitnami/postgresql] Release 14.18.0-debian-12-r11 (bitnami#82713)
-  IMAGE_GIT_REF: ae257f7cdcdc7b098cb678edd8c500f923082787
-  IMAGE_TAG: postgresql-14.18.0-debian-12-r11
-  IMAGE_CONTEXT: ./bitnami/postgresql/14/debian-12/
+  # [bitnami/postgresql] Release 16.9.0-debian-12-r13 (bitnami#82710)
+  IMAGE_GIT_REF: 0191828691ccfad53afb58d918ce2dd3105e1f6b
+  IMAGE_TAG: postgresql-16.9.0-debian-12-r13
+  IMAGE_CONTEXT: ./bitnami/postgresql/16/debian-12/
 
 jobs:
   build:
