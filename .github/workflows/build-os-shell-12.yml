@@ -1,4 +1,4 @@
-name: zookeeper-3.7.2-debian-11-r6
+name: os-shell-12-debian-12-r53
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -15,10 +15,10 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  # [bitnami/zookeeper] Release 3.7.2-debian-11-r6 (bitnami#55206)
+  # [bitnami/os-shell] Release 12-debian-12-r53 (bitnami#86950)
   IMAGE_GIT_REF: 692f80e7b908a1e0a4a4b848b1f3b4599271736f
-  IMAGE_TAG: zookeeper-3.7.2-debian-11-r6
-  IMAGE_CONTEXT: ./bitnami/zookeeper/3.7/debian-11
+  IMAGE_TAG: os-shell-12-debian-12-r53
+  IMAGE_CONTEXT: ./bitnami/os-shell/12/debian-12
 
 jobs:
   build:
