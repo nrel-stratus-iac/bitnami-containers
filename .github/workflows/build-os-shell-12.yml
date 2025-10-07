@@ -16,7 +16,7 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
   # [bitnami/os-shell] Release 12-debian-12-r53 (bitnami#86950)
-  IMAGE_GIT_REF: 692f80e7b908a1e0a4a4b848b1f3b4599271736f
+  IMAGE_GIT_REF: 6e1cc7fcee62de99495953479fa7a5f4b7f19a92
   IMAGE_TAG: os-shell-12-debian-12-r53
   IMAGE_CONTEXT: ./bitnami/os-shell/12/debian-12
 
